@@ -169,3 +169,5 @@ Kaiko_denovo_tf1.15.0
 tf2.0.0_variable_names.txt
 tf_updgrade_report.txt
 *.pptx
+Casanovo/PNNL_casanovo.ckpt
+Casanovo/casanovo_massivekb.ckpt
