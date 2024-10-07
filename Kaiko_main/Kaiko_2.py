@@ -108,6 +108,7 @@ def combine_denovo_output(directory, prefix, denovo_method, selection = 0.25):
             summary = grouped.apply(summary_times).to_frame()
             # summary = grouped.apply(summary_times)
             summary['output_seq'] = summary.index
+            summary['output_seq'] = [peptide.replace('+15.995', '') for peptide in summary['output_seq']]
             summary.columns = ['times', 'output_seq']
             summary = summary[['output_seq', 'times']]
             summary['rank'] = grouped.apply(summary_rank)

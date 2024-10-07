@@ -28,11 +28,7 @@ def run_diamond_tally(diamond_output, n_strain_select, ncbi_taxa_folder, mode, f
     if not detailed_fout.exists():
 
         filterby={}
-        # if pident: filterby['pident'] = float(pident)
-        # # #     if FLAGS.evalue: filterby['evalue'] = FLAGS.evalue
-        # # #     if FLAGS.mismatch: filterby['mismatch'] = FLAGS.mismatch
-        # print('filterby:', filterby)
-        
+                
         ############################################################
         # read diamond output file
         ############################################################
@@ -221,22 +217,6 @@ def get_taxa_members(member_tbl_file, unique_unirefs):
     df = pd.concat(dfs)
     print("  #Chunk:{}, Size:{}, {:.2f}min".format(len(dfs), df.shape, (time.time()-stime)/60))
     return df
-
-
-# prefix = "S1_NM0001_NMDC_MixedCommunities_R3_mgf"
-# diamond_search_out = Path("Kaiko_volume/Kaiko_intermediate/" + prefix + "_diamond_search_output.dmd")
-# nprot = '{:.5e}'.format(int(69000))
-# kaiko_tally = Path("Kaiko_volume/Kaiko_intermediate/" + prefix + "_kaiko_prediction" + f'_top_taxa_nprot_{nprot}_top_{5}_strains.csv')
-# ncbi_taxa_folder = Path(PureWindowsPath("Kaiko_volume/Kaiko_stationary_files/ncbi_taxa").as_posix())
-
-# run_diamond_tally(diamond_search_out, 
-#                   1, 
-#                   ncbi_taxa_folder, 
-#                   "member", 
-#                   kaiko_tally, 
-#                   100,
-#                   150000)
-
 
 def make_top_taxa_df(detailed_output, taxa_stats, taxa_col, n_strain_select, n_protein_cutoff):
     unique_pepseq_taxa = detailed_output.drop_duplicates(subset=['scan',taxa_col])
